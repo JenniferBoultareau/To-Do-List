@@ -1,0 +1,41 @@
+.background {
+  background-image: url(../src/Pics/background.jpg);
+  height: 100vh;
+  width: 100vw; 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; 
+}
+
+.title {
+  font-family: 'Shadows Into Light Two', cursive;  
+  color: #D1B159;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 40px;
+  margin: 0;
+}
+
+@media screen and (min-width: 200px) and (max-width: 576px) {
+  .title {
+    font-size: 50px;
+  }
+}
+
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .title {
+    font-size: 90px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+  .title {
+    font-size: 130px; 
+  }
+}
+
+@media screen and (min-width: 993px) {
+  .title {
+    font-size: 150px; 
+  }
+}
