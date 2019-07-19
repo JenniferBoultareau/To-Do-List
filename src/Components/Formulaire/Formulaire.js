@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Button, Form } from 'semantic-ui-react';
 
+import './Formulaire.css';
+
 function Formulaire() {
 
   const [todo, setTodo] = useState('');
@@ -18,10 +20,12 @@ function Formulaire() {
 
   return (
     <div className="container">
+    <div className="allForm">
       <Form className="ui huge form" style={{ width: 700}}>
         <Form.Field 
           label='To Do' 
           control='input' 
+          className="inputTitle"
           value={todo}
           onChange={(event) => setTodo(event.target.value)} 
         />
@@ -31,13 +35,14 @@ function Formulaire() {
           onChange={(event) => setExplication(event.target.value)}
         />
         <Button 
-          inverted color='purple'
+          color='violet'
           className="ui massive button"
           onClick={submitTodo}
         >
           Enregistrer
         </Button>
       </Form>
+      </div>
     </div>
   );
 }
