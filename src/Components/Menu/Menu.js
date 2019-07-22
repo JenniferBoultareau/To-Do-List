@@ -17,7 +17,7 @@ function Menu() {
         <Button 
           color='pink'
           className="ui massive button"
-          href="/card"
+          href="/todo"
         >
           Voir les TO DO
         </Button>

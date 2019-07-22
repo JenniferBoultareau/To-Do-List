@@ -12,6 +12,12 @@ api.use(cors({ origin: '*' }));
 api.use(bodyParser.json());
 api.use(bodyParser.urlencoded({extended: false}));
 
+api.get('/todo', (req, res) => {
+  database.find({}, (err, data) => {
+    res.json(data);
+  })
+})
+
 api.post('/todo', (req, res) => {
   let data = req.body;
   data.timestamp =Date.now();
@@ -19,7 +25,18 @@ api.post('/todo', (req, res) => {
   res.sendStatus(200);
 });
 
+api.put('/todo/:id', (req, res) =>  {
+  database.update({todo: req.params.todo}, {explication: req.params.todo}, (err, numRemoved) => {
+    res.sendStatus(200);
+  })
+})
+
+api.delete('/todo/:id', (req, res) => {
+  database.remove({_id: req.params.id}, (err, numRemoved) => {
+    res.sendStatus(200);
+  })
+})
+
 api.listen(8000,(err) => {
-  if(err) throw err;
   console.log('API running ..');
 })
