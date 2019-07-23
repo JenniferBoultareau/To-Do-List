@@ -4,6 +4,7 @@ import Menu from './Components/Menu/Menu';
 import Todo from './Components/Todo/Todo';
 import { Route } from 'react-router-dom';
 import './App.css';
+import ModifTodo from './Components/ModifTodo/ModifTodo';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Menu />
         <Route path="/create" exact component={Formulaire} />
         <Route path="/todo" exact component={Todo} />
+        <ModifTodo />
       </div>
     </div>
   );

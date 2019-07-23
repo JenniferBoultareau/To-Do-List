@@ -1,10 +1,12 @@
 import React, {useState, useEffect } from 'react';
-import { Card, Button } from 'semantic-ui-react'
-import './Todo.css';
+import { Card, Button } from 'semantic-ui-react';
 import axios from 'axios';
 import moment from 'moment';
+import modifTodo from '../../Actions/modifTodoAction';
 
-function Todo() {
+import './Todo.css';
+
+function Todo(props) {
 
 const [todos, setTodos] = useState([]);
   
@@ -16,14 +18,14 @@ const getDatas = () => {
   axios.get('http://localhost:8000/todo')
   .then((result) => {
     setTodos(result.data);
-  })
-}
+  });
+};
 
 const removeTodo = (todo) => {
   axios.delete(`http://localhost:8000/todo/${todo._id}`).then((result) => {
     getDatas()
-  })
-}
+  });
+};
 
   return (
     <div className="container">
@@ -38,6 +40,7 @@ const removeTodo = (todo) => {
             <Button 
               inverted color='blue'
               size='big'
+              // onClick={() => updateTodo(index)}
             >
               Modifier
             </Button>

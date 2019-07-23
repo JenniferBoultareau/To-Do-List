@@ -16,7 +16,7 @@ api.get('/todo', (req, res) => {
   database.find({}, (err, data) => {
     res.json(data);
   })
-})
+});
 
 api.post('/todo', (req, res) => {
   let data = req.body;
