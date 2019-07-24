@@ -6,15 +6,17 @@ import { connect } from 'react-redux';
 function ModifTodo(props) {
 
   const [newTodo, setNewTodo] = useState('');
-  const [newExplication, setNewExplication] = useState('');
+  const [newExplication, setNewExplication] = useState('');  
 
   useEffect(() => {
-    props.body.length > 0 && setNewTodo(props.body[0].todo);
-    props.body.length > 0 && setNewExplication(props.body[0].explication);
-  }, [props])
+    props.body.length > 0 && setNewTodo(props.body[props.index].todo);
+    props.body.length > 0 && setNewExplication(props.body[props.index].explication);
+    console.log(props.body[props.index])
+  },[props.index]);
 
-  // const submitNewTodo = () => {
-  //   axios.put('/todo/:id', {
+
+  // const submitNewTodo = (todo) => {
+  //   axios.put(`http://localhost:8000/todo/${todo._id}`, {
   //     todo: newTodo,
   //     explication: newExplication
   //   }).then((result) => {
@@ -52,7 +54,8 @@ function ModifTodo(props) {
 }
 
 const mapStateToProps = state => ({
-  body: state,
+  body: state.body,
+  index: state.index,
 })
 
 export default connect(mapStateToProps)(ModifTodo);

@@ -2,7 +2,10 @@ import React, {useState, useEffect } from 'react';
 import { Card, Button } from 'semantic-ui-react';
 import axios from 'axios';
 import moment from 'moment';
+import { connect } from 'react-redux';
 import modifTodo from '../../Actions/modifTodoAction';
+import switchView from '../../Actions/switchviewAction';
+import { editTodos} from '../../Actions/addTodoAction';
 
 import './Todo.css';
 
@@ -18,6 +21,7 @@ const getDatas = () => {
   axios.get('http://localhost:8000/todo')
   .then((result) => {
     setTodos(result.data);
+    props.dispatch(editTodos(result.data))
   });
 };
 
@@ -25,6 +29,11 @@ const removeTodo = (todo) => {
   axios.delete(`http://localhost:8000/todo/${todo._id}`).then((result) => {
     getDatas()
   });
+};
+
+const updateTodo = (index) => {
+  props.dispatch(modifTodo(index))
+  props.dispatch(switchView('ModifTodo'));
 };
 
   return (
@@ -40,7 +49,7 @@ const removeTodo = (todo) => {
             <Button 
               inverted color='blue'
               size='big'
-              // onClick={() => updateTodo(index)}
+              onClick={() => updateTodo(index)}
             >
               Modifier
             </Button>
@@ -60,4 +69,9 @@ const removeTodo = (todo) => {
   );
 }
 
-export default Todo;
+const mapStateToProps = state => ({
+  view: state.view,
+  body: state.body,
+});
+
+export default connect(mapStateToProps)(Todo);

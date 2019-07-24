@@ -1,10 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Formulaire from './Components/Formulaire/Formulaire';
 import Menu from './Components/Menu/Menu';
 import Todo from './Components/Todo/Todo';
+import View from './Components/View/View';
 import { Route } from 'react-router-dom';
 import './App.css';
-import ModifTodo from './Components/ModifTodo/ModifTodo';
 
 function App() {
   return (
@@ -12,12 +13,15 @@ function App() {
       <div>
         <p className="title">TO DO LIST</p>
         <Menu />
-        <Route path="/create" exact component={Formulaire} />
-        <Route path="/todo" exact component={Todo} />
-        <ModifTodo />
-      </div>
+        <View />
+
+      </div>        
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = state => ({
+  view: state,
+});
+
+export default connect(mapStateToProps)(App);

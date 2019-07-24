@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import './index.css';
@@ -11,22 +10,22 @@ import 'semantic-ui-css/semantic.min.css';
 
 import modifTodoReducer from './Reducers/modifTodoReducer';
 import addTodoReducer from './Reducers/addTodoReducer';
+import switchviewReducer from './Reducers/switchviewReducer';
 
-// const allReducers = combineReducers({
-//   body: addTodoReducer,
-//   index: modifTodoReducer,
-// });
+const allReducers = combineReducers({
+  body: addTodoReducer,
+  index: modifTodoReducer,
+  view: switchviewReducer,
+});
 
 const store = createStore(
-  addTodoReducer,
+  allReducers,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-  );
+);
 
 ReactDOM.render(
   <Provider store = {store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <App />
   </Provider>,
   document.getElementById('root')
 );
