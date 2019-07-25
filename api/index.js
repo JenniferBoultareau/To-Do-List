@@ -25,11 +25,11 @@ api.post('/todo', (req, res) => {
   res.sendStatus(200);
 });
 
-// api.put('/todo/:id', (req, res) =>  {
-//   database.update({_id: req.params.id}, { $push: req.body}, (err, numRemoved) => {
-//     res.sendStatus(200);
-//   })
-// })
+api.put('/todo/:id', (req, res) =>  {
+  database.update({_id: req.params.id}, { $set: { "todo": req.body.todo, "explication": req.body.explication } }, (err, numRemoved) => {
+    res.sendStatus(200);
+  })
+})
 
 api.delete('/todo/:id', (req, res) => {
   database.remove({_id: req.params.id}, (err, numRemoved) => {
