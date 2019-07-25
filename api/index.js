@@ -8,7 +8,7 @@ const api = express();
 const database = new Datastore('database.db');
 database.loadDatabase();
 
-api.use(cors({ origin: '*' }));
+api.use(cors({ origin: 'https://jenniferboultareau/projets/todolist/' }));
 api.use(bodyParser.json());
 api.use(bodyParser.urlencoded({extended: false}));
 
