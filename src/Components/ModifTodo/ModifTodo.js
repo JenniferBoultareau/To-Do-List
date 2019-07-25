@@ -13,7 +13,6 @@ function ModifTodo(props) {
     props.body.length > 0 && setNewTodo(props.body[props.index].todo);
     props.body.length > 0 && setNewExplication(props.body[props.index].explication);
     props.body.length > 0 && setNewId(props.body[props.index]._id);
-    console.log(props.body[props.index])
   },[props.index]);
 
 

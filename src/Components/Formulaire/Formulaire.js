@@ -17,7 +17,6 @@ function Formulaire(props) {
       todo: todo,
       explication: explication
     }).then((result) => {
-      // console.log(result);
     })
     setTodo('');
     setExplication('');
@@ -26,7 +25,7 @@ function Formulaire(props) {
       explication: explication
     }
     setTodos([...todos, temp]);    
-  }
+  };
 
   useEffect(() => {
     props.dispatch(editTodos(todos));
@@ -36,21 +35,20 @@ function Formulaire(props) {
     <div className="container">
     <div className="allForm">
       <Form className="ui huge form" style={{ width: 700}}>
+        <label className="inputLabel">What To Do !</label>
         <Form.Field 
-          label='To Do' 
-          control='input' 
-          className="inputTitle"
+          control='input'
           value={todo}
           onChange={(event) => setTodo(event.target.value)} 
         />
-        <Form.TextArea 
-          label='What is it!' 
+        <label className="inputLabel">What Is It !</label>
+        <Form.TextArea  
           value={explication}
           onChange={(event) => setExplication(event.target.value)}
         />
         <Button 
           color='violet'
-          className="ui massive button"
+          className="ui massive button submitButton"
           onClick={submitTodo}
         >
           Enregistrer

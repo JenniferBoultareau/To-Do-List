@@ -10,28 +10,35 @@
   text-align: center;
   padding-top: 40px;
   margin: 0;
+  margin-bottom: 30px;
 }
 
 @media screen and (min-width: 200px) and (max-width: 576px) {
   .title {
-    font-size: 50px;
+    font-size: 50px;    
+  }
+  .menuButton {
+    font-size: 19px !important;
+  }
+  .submitButton {
+    font-size: 19px !important;
   }
 }
 
 @media screen and (min-width: 577px) and (max-width: 768px) {
   .title {
-    font-size: 90px;
+    font-size: 90px;    
   }
 }
 
 @media screen and (min-width: 769px) and (max-width: 992px) {
   .title {
-    font-size: 130px; 
+    font-size: 130px;     
   }
 }
 
 @media screen and (min-width: 993px) {
   .title {
-    font-size: 150px; 
+    font-size: 150px;     
   }
 }
