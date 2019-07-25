@@ -1,4 +1,4 @@
-Projet de TO DO LIST;
+Projet de TO DO LIST;<br>
 Technologies utilisées: JavaScript, React, Base de données NeDB, React Semantic;
 
 
