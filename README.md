@@ -1,3 +1,7 @@
+Projet de TO DO LIST;
+Technologies utilisées: JavaScript, React, Base de données NeDB, React Semantic;
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
