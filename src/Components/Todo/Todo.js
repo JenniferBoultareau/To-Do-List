@@ -18,7 +18,7 @@ useEffect(() => {
 }, []);
 
 const getDatas = () => {
-  axios.get('http://localhost:8000/todo')
+  axios.get('http://localhost:8001/todo')
   .then((result) => {
     setTodos(result.data);
     props.dispatch(editTodos(result.data))
@@ -26,7 +26,7 @@ const getDatas = () => {
 };
 
 const removeTodo = (todo) => {
-  axios.delete(`http://localhost:8000/todo/${todo._id}`).then((result) => {
+  axios.delete(`http://localhost:8001/todo/${todo._id}`).then((result) => {
     getDatas()
   });
 };

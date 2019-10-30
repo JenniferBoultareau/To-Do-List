@@ -13,7 +13,7 @@ function Formulaire(props) {
   const [todos, setTodos] = useState([]);
 
   const submitTodo = () => {
-    axios.post('http://localhost:8000/todo', {
+    axios.post('http://localhost:8001/todo', {
       todo: todo,
       explication: explication
     }).then((result) => {

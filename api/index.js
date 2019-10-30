@@ -8,7 +8,7 @@ const api = express();
 const database = new Datastore('database.db');
 database.loadDatabase();
 
-api.use(cors({ origin: 'https://jenniferboultareau/projets/todolist/' }));
+api.use(cors({ origin: 'https://jenniferboultareau.fr/projets/todolist/' }));
 api.use(bodyParser.json());
 api.use(bodyParser.urlencoded({extended: false}));
 
@@ -37,6 +37,6 @@ api.delete('/todo/:id', (req, res) => {
   })
 })
 
-api.listen(8000,(err) => {
+api.listen(8001,(err) => {
   console.log('API running ..');
 })

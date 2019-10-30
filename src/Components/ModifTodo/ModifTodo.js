@@ -17,7 +17,7 @@ function ModifTodo(props) {
 
 
   const submitNewTodo = (todo, explication, id) => {
-    axios.put(`http://localhost:8000/todo/${id}`, {
+    axios.put(`http://localhost:8001/todo/${id}`, {
       todo: todo,
       explication: explication
     }).then((result) => {
